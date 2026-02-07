@@ -1,4 +1,4 @@
-from moviepy.editor import ImageClip, concatenate_videoclips
+from moviepy import ImageClip, concatenate_videoclips
 
 # Create 2 simple colored clips
 clip1 = ImageClip(color=(255, 0, 0), size=(640, 480)).set_duration(2)
