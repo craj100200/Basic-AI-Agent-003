@@ -3,8 +3,8 @@ from moviepy import concatenate_videoclips
 
 def main():
     # Create two simple color clips
-    clip1 = ColorClip(size=(640, 480), color=(255, 0, 0)).set_duration(2)
-    clip2 = ColorClip(size=(640, 480), color=(0, 255, 0)).set_duration(2)
+    clip1 = ColorClip(size=(640, 480), color=(255, 0, 0), duration =2)
+    clip2 = ColorClip(size=(640, 480), color=(0, 255, 0), duration =2)
 
     # Concatenate them
     final = concatenate_videoclips([clip1, clip2])
