@@ -1,13 +1,18 @@
-from moviepy import ImageClip, concatenate_videoclips
+from moviepy.video.VideoClip import ColorClip
+from moviepy.video.compositing.concatenate import concatenate_videoclips
 
-# Create 2 simple colored clips
-clip1 = ImageClip(color=(255, 0, 0), size=(640, 480)).set_duration(2)
-clip2 = ImageClip(color=(0, 255, 0), size=(640, 480)).set_duration(2)
+def main():
+    # Create two simple color clips
+    clip1 = ColorClip(size=(640, 480), color=(255, 0, 0)).set_duration(2)
+    clip2 = ColorClip(size=(640, 480), color=(0, 255, 0)).set_duration(2)
 
-# Concatenate clips
-final_clip = concatenate_videoclips([clip1, clip2])
+    # Concatenate them
+    final = concatenate_videoclips([clip1, clip2])
 
-# Write output video
-final_clip.write_videofile("/tmp/test_video.mp4", fps=24)
+    # Write the result
+    output_path = "/tmp/test_video.mp4"
+    final.write_videofile(output_path, fps=24)
+    print("✔ Video created at:", output_path)
 
-print("Video created successfully at /tmp/test_video.mp4")
+if __name__ == "__main__":
+    main()
